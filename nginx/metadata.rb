@@ -24,6 +24,20 @@ attribute "nginx/binary",
   :description => "Location of the nginx server binary",
   :default => "/usr/sbin/nginx"
 
+# http://nginx.org/en/docs/http/ngx_http_auth_basic_module.html
+attribute "nginx/auth_basic",
+  :display_name => "Nginx HTTP Basic Authentication",
+  :description => "Enable use of HTTP Basic Auth. Parameter is the realm to use."
+
+attribute "nginx/auth_basic_user_file",
+  :display_name => "Nginx HTTP Basic Auth Password File",
+  :description => "File to look up HTTP Basic Auth credentials in",
+  :default => "conf.d/htpasswd"
+
+attribute "nginx/auth_basic_credentials",
+  :display_name => "Nginx HTTP Basic Auth Credentials",
+  :description => "Username and password used to access site. Assumes single."
+
 attribute "nginx/gzip",
   :display_name => "Nginx Gzip",
   :description => "Whether gzip is enabled",
