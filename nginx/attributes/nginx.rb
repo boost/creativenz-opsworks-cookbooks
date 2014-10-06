@@ -37,6 +37,8 @@ end
 
 default[:nginx][:log_format] = {}
 
+default[:nginx][:auth_basic_user_file] = "conf.d/htpasswd"
+
 # increase if you accept large uploads
 default[:nginx][:client_max_body_size] = "4m"
 

@@ -57,6 +57,16 @@ template "nginx.conf" do
   mode 0644
 end
 
+if node[:nginx][:auth_basic]
+  template "htpasswd" do
+    path "#{node[:nginx][:dir]}/conf.d/htpasswd"
+    source "htpasswd.erb"
+    owner "root"
+    group "root"
+    mode 0644
+  end
+end
+
 template "#{node[:nginx][:dir]}/sites-available/default" do
   source "default-site.erb"
   owner "root"
