@@ -111,3 +111,12 @@ server {
   }
 }
 <% end %>
+
+# Redirect a list of domains to the canonical domain.
+<% @application[:redirect_domains].each do |domain| -%>
+server {
+  listen 80;
+  server_name .<%= domain %>;
+  return 301 $scheme://<%= @application[:domains].first %>$request_uri;
+}
+<% end -%>
