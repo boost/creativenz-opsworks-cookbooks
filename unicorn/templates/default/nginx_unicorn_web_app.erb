@@ -64,7 +64,7 @@ server {
   listen   443;
   server_name <%= @application[:domains].join(" ") %> <%= node[:hostname] %>;
   access_log <%= node[:nginx][:log_dir] %>/<%= @application[:domains].first %>-ssl.access.log;
-  
+
   ssl on;
   ssl_certificate /etc/nginx/ssl/<%= @application[:domains].first %>.crt;
   ssl_certificate_key /etc/nginx/ssl/<%= @application[:domains].first %>.key;
@@ -112,6 +112,7 @@ server {
 }
 <% end %>
 
+<% if @application[:redirect_domains] -%>
 # Redirect a list of domains to the canonical domain.
 <% @application[:redirect_domains].each do |domain| -%>
 server {
@@ -119,4 +120,5 @@ server {
   server_name .<%= domain %>;
   return 301 $scheme://<%= @application[:domains].first %>$request_uri;
 }
+<% end -%>
 <% end -%>
