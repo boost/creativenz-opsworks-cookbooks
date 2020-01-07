@@ -18,11 +18,11 @@ include_attribute 'opsworks_initial_setup::default'
 include_attribute 'opsworks_commons::default'
 
 case node["opsworks"]["ruby_version"]
-when "2.5"
+when "2.6"
   default[:ruby][:major_version] = "2"
-  default[:ruby][:minor_version] = "5"
-  default[:ruby][:patch_version] = "5"
-  default[:ruby][:pkgrelease]    = ""
+  default[:ruby][:minor_version] = "6"
+  default[:ruby][:patch_version] = "1"
+  default[:ruby][:pkgrelease]    = "1"
 
   default[:ruby][:full_version] = [node[:ruby][:major_version], node[:ruby][:minor_version]].join(".")
   default[:ruby][:version] = [node[:ruby][:full_version], node[:ruby][:patch_version]].join(".")
