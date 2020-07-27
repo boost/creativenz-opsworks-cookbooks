@@ -26,6 +26,6 @@ default[:unicorn][:tcp_nopush] = false
 default[:unicorn][:tries] = 5
 default[:unicorn][:delay] = 0.5
 default[:unicorn][:accept_filter] = "httpready"
-default[:unicorn][:rack_version] = "1.6.4"
+default[:unicorn][:rack_version] = "1.6.12"
 
 include_attribute "unicorn::customize"
