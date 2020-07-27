@@ -20,12 +20,12 @@ default[:unicorn][:worker_processes] = node[:rails][:max_pool_size] ? node[:rail
 default[:unicorn][:backlog] = 1024
 default[:unicorn][:timeout] = 60
 default[:unicorn][:preload_app] = true
-default[:unicorn][:version] = '4.7.0'
+default[:unicorn][:version] = '5.4.1'
 default[:unicorn][:tcp_nodelay] = true
 default[:unicorn][:tcp_nopush] = false
 default[:unicorn][:tries] = 5
 default[:unicorn][:delay] = 0.5
 default[:unicorn][:accept_filter] = "httpready"
-default[:unicorn][:rack_version] = "1.6.4"
+default[:unicorn][:rack_version] = "1.6.12"
 
 include_attribute "unicorn::customize"
